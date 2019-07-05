@@ -121,8 +121,8 @@ public:
             if( this != &other){
                 if((within(start.x-1, other.start.x, other.start.x + other.end.x) || within(other.start.x-1, start.x, start.x + end.x)) &&
                    (within(start.y-1, other.start.y, other.start.y + other.end.y) || within( other.start.y-1, start.y, start.y + end.y)))
-                    {if(other.collide[0] == 1){speed.x *= -1;}
-                     if(other.collide[1] == 1){speed.y *= -1;}}
+                    {if(other.collide[0] == 1){speed.x = (speed.x/2) * -1;}
+                     if(other.collide[1] == 1){speed.y = (speed.y/2) * -1;}}
             }
         }
         // if colBounce is turned off it will look at the boundaries and stay in them
@@ -149,9 +149,10 @@ public:
     // standard acceleration from input and speed reduction if no input is given
     void moveWithSpeed(int x, int y){
         if(x == 0 && y == 0){
-            speed.x = speed.x /4;
-            speed.y = speed.y /4;
+            speed.x = speed.x/2;
+            speed.y = speed.y/2;
         }
+        
         else{
             speed.x = speed.x + (x/2);
             speed.y = speed.y + (y/2);
