@@ -45,12 +45,15 @@ private:
     void moveTo(hwlib::xy target){
         collideLine::moveTo(target); 
     }
+    void moveRelative(){
+        collideLine::moveRelative(speed.x, speed.y);
+    }
 public:
     bullet(windowDraw &window, hwlib::xy start, hwlib::xy end, bool collision1, bool collision2):
         collideLine(window, start, end, collision1, collision2)
         {}
     void draw(){
-        line::draw();
+        collideLine::draw();
     }
     // move objects out of the field
     void interact(collideObject &other){
@@ -64,12 +67,12 @@ public:
     // move to the ship and accelerate in accordance to the ship
     void shot(hwlib::xy location, hwlib::xy speedNew){
         speed.x = speedNew.x * 1.5 +5;
-        speed.y = speedNew.y * 1.5 +5;
+        speed.y = speedNew.y * 1.5;
         moveTo(location);
     }
 
     void move(){
-        moveRelative(speed.x, speed.y);
+        moveRelative();
     }
 
 };
@@ -146,8 +149,8 @@ public:
     // standard acceleration from input and speed reduction if no input is given
     void moveWithSpeed(int x, int y){
         if(x == 0 && y == 0){
-            speed.x = speed.x /2;
-            speed.y = speed.y /2;
+            speed.x = speed.x /4;
+            speed.y = speed.y /4;
         }
         else{
             speed.x = speed.x + (x/2);

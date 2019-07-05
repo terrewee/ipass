@@ -57,6 +57,8 @@ int main( void ){
                 count = 0;}
         }
         
+        test.moveWithSpeed(joy.readX(), joy.readY());
+        for(auto &bullets : bulletInteraction){bullets->move();}
 
         for(auto &objects : objectList){
             test.interact(*objects);
@@ -65,8 +67,6 @@ int main( void ){
         for(auto &objects : objectList){objects->draw();}
         for(auto &bullets : bulletInteraction){bullets->draw();}
 
-        for(auto &bullets : bulletInteraction){bullets->move();}
-        test.moveWithSpeed(joy.readX(), joy.readY());
 
     }
 }
