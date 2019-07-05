@@ -70,21 +70,3 @@ int main( void ){
 
     }
 }
-
-//     windowText w0(screen, hwlib::xy(0,0), hwlib::xy(128,64), hwlib::font_default_8x8());
-//     while(true){
-//         w0.area 
-//             << "\t0000"
-//             << joy.readX() 
-//             << " " 
-//             << joy.readY() 
-//             << "\n" 
-//             << joy.readButton()
-//             << hwlib::flush;
-//             hwlib::cout << joy.rawX() << " " << joy.rawY() << "\n";
-
-//         // if(!ballx.read()){n++;}
-//         // else if(ballx.read()){n--;}
-//         hwlib::wait_ms( 0 );
-//     }
-// }
